@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><title>Esercitazione 1</title>
+
+
+
+
+
+<meta name="description" content="Esercitazione 1">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="jLaTeX2HTML v2002 JA patch-1.4">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="STYLESHEET" href="html-main-14.css">
+
+<style type="text/css">
+.style1 {
+	text-decoration: underline;
+}
+.style3 {
+	margin-left: 80px;
+}
+.style4 {
+	margin-left: 120px;
+}
+</style></head><body>
+
+<center>
+  <h1>Progettazione del Software - A.A. 2010/11</h1>
+  <h2>Esercitazione 1 - 18/03/2010</h2>
+</center>
+<h3>Esercizio 1.</h3>
+<p>Dopo aver analizzato la <a href="realizzazioneLista.zip">realizzazione</a> 
+del
+<a href="tipo_astratto_lista.html" target="_blank">Tipo astratto <em>
+Lista</em></a><em> </em>con uno schema realizzativo sia con side-effect (senza 
+condivisione di memoria) sia funzionale (con condivisione di memoria) realizzare 
+il <a href="tipo_astratto_pila.html" target="_blank">Tipo Astratto <em>Pila</em></a> 
+con gli stessi schemi realizzativi. Scrivere anche due classi "main" per provare 
+le diverse realizzazioni.</p>
+<ul>
+	<li>Effettuare opportunamente anche l'overriding del metodo <tt>hashcode</tt> 
+	.</li>
+	<li>Realizzare la classe utilizzando i Generics.</li>
+</ul>
+<h3>Esercizio 2.</h3>
+<ol>
+	<li>Realizzare il <a href="tipo_astratto_officina.html" target="_blank">Tipo 
+	astratto
+	<em>Officina</em></a>.</li>
+	<li>Realizzare le seguenti implementazioni concrete della classe <em>Mezzo</em></li>
+</ol>
+<p class="style3"><span class="style1"><em><strong>Bicicletta</strong></em></span> </p>
+<ul class="style4">
+	<li>Costruttore <tt> Bicicletta(String unaMarca, String unModello, String 
+	unColore)</tt></li>
+	<li>Il metodo<tt> getNumeroRuote()</tt> restituisce sempre 2.</li>
+</ul>
+<p class="style3"><span class="style1"><em><strong>Auto</strong></em></span> </p>
+<ul class="style4">
+	<li>Costruttore <tt> Auto(String unaMarca, String unModello, String 
+	unColore, String targa)</tt></li>
+	<li>Esiste&nbsp; un metodo<tt> getTarga()</tt> che restituisce la targe dell'auto</li>
+	<li>Il metodo<tt> getNumeroRuote()</tt> restituisce sempre 4.</li>
+</ul>
+<p class="style3"><span class="style1"><em><strong>Camion</strong></em></span> </p>
+<ul class="style4">
+	<li>Costruttore <tt> Camion(String unaMarca, String unModello, String 
+	unColore, boolean rimorchio)</tt> dove <tt> rimorchio</tt> vale <em>
+	true</em> se il camion è provvisto di rimorchio.</li>
+	<li>Esiste un metodo<tt> haRimorchio()</tt> che restituisce <em>true</em> se 
+	il camion è provvisto di rimorchio.</li>
+	<li>Il metodo<tt> getNumeroRuote()</tt> restituisce 8 se<tt> haRimorchio()</tt> 
+	vale <em>true</em> oppure 4 se <tt> haRimorchio()</tt> vale <em>false</em></li>
+</ul>
+<ol>
+	<li value="3">Realizzare una classe "main" per provare le implementazioni.</li>
+</ol>
+<h4>Note sulla realizzazione.</h4>
+
+<ul>
+<li>Rappresentazione dei valori: dobbiamo rappresentare da una parte la partita 
+IVA dell'officina e dall'altra i mezzi presenti nell'officina con associato il 
+loro status. La partita IVA la rappresentiamo con un campo dati (variabile di 
+istanza) <tt>String</tt>. Le auto presenti nell'officina le rappresentiamo 
+attraverso una lista collegata i cui nodi contengono due informazioni: il 
+riferimento all'auto e lo status dell'auto nell'officina rappresentato da un 
+valore booleano. L'uso di una lista collegata è giustificato dal fatto che le 
+auto devono essere inserite ed eliminate dalla struttura dati che rappresenta 
+l'officina.
+</li>
+<li>Schema realizzativo: essendo <i>Officina</i> un tipo astrazione di entità 
+sceglieremo uno schema realizzativo con side-effect (senza condivisione di 
+memoria). Gli oggetti <tt>Auto</tt> verranno utilizzati in sharing.</li>
+<li>Interfaccia di classe: definiamo un metodo per ciascuna delle funzioni del 
+tipo astratto. Realizziamo la funzione <i>crea</i>
+  attraverso un costruttore con un parametro <tt>String</tt> per rappresentare 
+la partita IVA. Poiché <i>Officina</i> è un tipo astrazione di entità, il metodo <tt>
+equals</tt> ereditato da <tt>Object</tt> che verifica l'uguaglianza superficiale 
+è sufficiente a definire l'uguaglianza tra officina (cioè un'officina è uguale 
+solo a se stessa).</li>
+</ul>
+
+</body></html>
